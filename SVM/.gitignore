@@ -1,6 +1,7 @@
 MANIFEST
 build
 dist
+svm.py
 _build
 docs/man/*.gz
 docs/source/api/generated
