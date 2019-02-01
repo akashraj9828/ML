@@ -20,18 +20,20 @@ print(recipies.head())
 
 # plot graph
 # sns.lmplot("flour","sugar",data=recipies,markers='*',size=6,order=0,scatter=True,fit_reg=False)
-sns.lmplot(x="flour",
-           y="sugar",
-           data=recipies,
-           size=6,
-        #    aspect=1,
-           markers=["x",'*'],
-           hue='type',
-           palette='Set1',
-           fit_reg=False,
-           scatter_kws={'s': 50},
-           )
-plt.show()
+
+
+# sns.lmplot(x="flour",
+#            y="sugar",
+#            data=recipies,
+#            size=6,
+#         #    aspect=1,
+#            markers=["x",'*'],
+#            hue='type',
+#            palette='Set1',
+#            fit_reg=False,
+#            scatter_kws={'s': 50},
+#            )
+# plt.show()
 
 # convert labels to 0 or 1 [muffin=0,cupcake=1]
 type_label = np.where(recipies['type'] == 'muffin', 0, 1)
@@ -43,8 +45,8 @@ type_label = np.where(recipies['type'] == 'muffin', 0, 1)
 
 
 # extract 2 features for now which we will use to train
-ingredients = recipies[['flour', 'sugar']].values
-
+ingredients = recipies[[ 'flour', 'milk', 'sugar','butter', 'egg', 'baking powder', 'vanilla', 'salt']].values
+# print(in)
 # make a SVC(support vector classifier) object
 model = svm.SVC(kernel='linear', probability=True)
 # train the svc object
@@ -52,3 +54,5 @@ model.fit(ingredients, type_label)
 
 # save the model/object to disk for later use
 pickle.dump(model,open('model.dat','wb'))
+
+print("\n\n\ntraining done!")
