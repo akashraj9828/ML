@@ -1,7 +1,7 @@
 MANIFEST
 build
 dist
-svm.py
+polt.py
 _build
 docs/man/*.gz
 docs/source/api/generated
