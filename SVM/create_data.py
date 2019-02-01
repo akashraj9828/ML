@@ -3,11 +3,11 @@ import time
 import csv
 # creates random data
 
-training_sample_count=1000
+training_sample_count=40
 testing_sample_count=50
 def create_data():
-    # random.seed(1)
-    random.seed(time.time)
+    # random.seed(1)    #creates same data everytime
+    random.seed(time.time)  # creates diffrent data everytime
     f=open("data.csv","w")
     headers=['type','flour','milk','sugar','butter','egg','baking powder','vanilla','salt']
     header_count=len(headers)
@@ -28,8 +28,8 @@ def create_data():
     csvFile.close()
 
 def create_test_data():
-    # random.seed(1)
-    random.seed(time.time)
+    # random.seed(1)    #creates same data everytime
+    random.seed(time.time)  # creates diffrent data everytime
     f=open("test.csv","w")
     headers = ['type', 'flour', 'milk', 'sugar', 'butter','egg', 'baking powder', 'vanilla', 'salt']
 
